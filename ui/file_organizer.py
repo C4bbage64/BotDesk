@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import (
     QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QFileDialog, QTextEdit
 )
-from automation.file_organizer import organize_fies
+from automation.file_organizer import organize_files
 
 class FileOrganizerUI(QWidget):
     def __init__(self):
@@ -59,5 +59,8 @@ class FileOrganizerUI(QWidget):
             self.log_area.append("Error: Please specify at least one file extension.")
             return
 
-        result = organize_files(folder_path, extensions)
-        self.log_area.append(result)
+        try:
+            result = organize_files(folder_path, extensions)
+            self.log_area.append(result)
+        except Exception as e:
+            self.log_area.append(f"An error occurred: {str(e)}")
