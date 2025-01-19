@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79092cf3-6be6-48b7-9471-2096972ae433" name="Changes" comment="Refactor Dockerfile">
-      <change afterPath="$PROJECT_DIR$/automations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/file_organizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/file_organizer.py" afterDir="false" />
-    </list>
+    <list default="true" id="79092cf3-6be6-48b7-9471-2096972ae433" name="Changes" comment="Added ui/init.py, automation/init.py and file_organizer.py" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,7 +149,7 @@
       <workItem from="1737029767154" duration="10176000" />
       <workItem from="1737116938470" duration="1873000" />
       <workItem from="1737255121412" duration="4338000" />
-      <workItem from="1737271401572" duration="5932000" />
+      <workItem from="1737271401572" duration="6287000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -235,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737278220652</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added ui/init.py, automation/init.py and file_organizer.py">
+      <option name="closed" value="true" />
+      <created>1737282677524</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1737282677524</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,11 +256,12 @@
     <MESSAGE value="Refactor main.py and requirements.txt" />
     <MESSAGE value="Refactor dashboard.py, ui/file_organizer.py and automation/file_organizer.py" />
     <MESSAGE value="Refactor Dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor Dockerfile" />
+    <MESSAGE value="Added ui/init.py, automation/init.py and file_organizer.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ui/init.py, automation/init.py and file_organizer.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BotDesk$BotDesk.coverage" NAME="BotDesk Coverage Results" MODIFIED="1736936297199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BotDesk$dashboard.coverage" NAME="dashboard Coverage Results" MODIFIED="1737035493273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
-    <SUITE FILE_PATH="coverage/BotDesk$main.coverage" NAME="main Coverage Results" MODIFIED="1737278290416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BotDesk$main.coverage" NAME="main Coverage Results" MODIFIED="1737282551409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
