@@ -1,40 +1,51 @@
-from PyQt5.QtWidgets import QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel
+from PyQt5.QtWidgets import (
+    QMainWindow, QVBoxLayout, QPushButton, QWidget, QLabel
+)
+from ui.file_organizer import FileOrganizerUI
 
 class Dashboard(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("BotDesk Dashboard")
-        self.setGeometry(200, 200, 800, 600)
+        self.setGeometry(300, 200, 800, 600)
 
-        # Main widget and layout
-        self.main_widget = QWidget()
+        # Central widget
+        self.central_widget = QWidget()
+        self.setCentralWidget(self.central_widget)
+
+        # Layout for the dashboard
         self.layout = QVBoxLayout()
 
-        # Buttons for each feature
-        self.file_organizer_button = QPushButton("File Organizer")
-        self.duplicate_finder_button = QPushButton("Duplicate Finder")
-        self.folder_analyzer_button = QPushButton("Folder Analyzer")
+        # Title
+        self.title_label = QLabel("Welcome to BotDesk: Your Desktop Automation Hub")
+        self.title_label.setStyleSheet("font-size: 18px; font-weight: bold;")
+        self.layout.addWidget(self.title_label)
 
-        # Add buttons to layout
-        self.layout.addWidget(QLabel("Welcome to BotDesk! Choose a task:"))
+        # Feature buttons
+        self.file_organizer_button = QPushButton("File Organizer")
+        self.file_organizer_button.clicked.connect(self.open_file_organizer)
         self.layout.addWidget(self.file_organizer_button)
+
+        self.duplicate_finder_button = QPushButton("Duplicate Finder (Coming Soon)")
+        self.duplicate_finder_button.setEnabled(False)  # Placeholder for future implementation
         self.layout.addWidget(self.duplicate_finder_button)
+
+        self.folder_analyzer_button = QPushButton("Folder Analyzer (Coming Soon)")
+        self.folder_analyzer_button.setEnabled(False)  # Placeholder for future implementation
         self.layout.addWidget(self.folder_analyzer_button)
 
-        # Set layout to main widget
-        self.main_widget.setLayout(self.layout)
-        self.setCentralWidget(self.main_widget)
+        self.pdf_tools_button = QPushButton("PDF Tools (Coming Soon)")
+        self.pdf_tools_button.setEnabled(False)  # Placeholder for future implementation
+        self.layout.addWidget(self.pdf_tools_button)
 
-        # Connect buttons to actions (to be implemented)
-        self.file_organizer_button.clicked.connect(self.open_file_organizer)
-        self.duplicate_finder_button.clicked.connect(self.open_duplicate_finder)
-        self.folder_analyzer_button.clicked.connect(self.open_folder_analyzer)
+        self.system_cleaner_button = QPushButton("System Cleaner (Coming Soon)")
+        self.system_cleaner_button.setEnabled(False)  # Placeholder for future implementation
+        self.layout.addWidget(self.system_cleaner_button)
+
+        # Set the layout
+        self.central_widget.setLayout(self.layout)
 
     def open_file_organizer(self):
-        print("Launching File Organizer...")  # Placeholder action
-
-    def open_duplicate_finder(self):
-        print("Launching Duplicate Finder...")  # Placeholder action
-
-    def open_folder_analyzer(self):
-        print("Launching Folder Analyzer...")  # Placeholder action
+        """Opens the File Organizer UI."""
+        self.file_organizer_window = FileOrganizerUI()
+        self.file_organizer_window.show()
