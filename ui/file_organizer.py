@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import (
     QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QFileDialog, QTextEdit
 )
-from automation.file_organizer import organize_files
+from automations.file_organizer import organize_files
 
 class FileOrganizerUI(QWidget):
     def __init__(self):
