@@ -49,3 +49,7 @@ class Dashboard(QMainWindow):
         """Opens the File Organizer UI."""
         self.file_organizer_window = FileOrganizerUI()
         self.file_organizer_window.show()
+
+    def open_duplicate_finder(self):
+        """Opens the Duplicate Finder UI."""
+        self.duplicate_finder
