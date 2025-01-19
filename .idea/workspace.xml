@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79092cf3-6be6-48b7-9471-2096972ae433" name="Changes" comment="Refactor ui/dashboard.py, ui/main.py and automation/file_organizer.py">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="79092cf3-6be6-48b7-9471-2096972ae433" name="Changes" comment="Added ui/pdf_tools.py file" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,12 +20,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;C4bbage64&quot;
-  }
-}</component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {}
+}]]></component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/C4bbage64/BotDesk&quot;,
@@ -139,7 +133,7 @@
       <workItem from="1737029767154" duration="10176000" />
       <workItem from="1737116938470" duration="1873000" />
       <workItem from="1737255121412" duration="4338000" />
-      <workItem from="1737271401572" duration="632000" />
+      <workItem from="1737271401572" duration="1615000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -173,7 +167,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737258417646</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Remove file_renamer.py, pdf_tools.py and scheduler.py">
+      <option name="closed" value="true" />
+      <created>1737273832734</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737273832734</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added ui/pdf_tools.py file">
+      <option name="closed" value="true" />
+      <created>1737273931330</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737273931330</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +194,9 @@
     <MESSAGE value="Added new files and refactor BotDesk.py" />
     <MESSAGE value="Adjusted Files" />
     <MESSAGE value="Refactor ui/dashboard.py, ui/main.py and automation/file_organizer.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor ui/dashboard.py, ui/main.py and automation/file_organizer.py" />
+    <MESSAGE value="Remove file_renamer.py, pdf_tools.py and scheduler.py" />
+    <MESSAGE value="Added ui/pdf_tools.py file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ui/pdf_tools.py file" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BotDesk$BotDesk.coverage" NAME="BotDesk Coverage Results" MODIFIED="1736936297199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
