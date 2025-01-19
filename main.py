@@ -4,8 +4,8 @@ from ui.dashboard import Dashboard
 
 def main():
     app = QApplication(sys.argv)
-    dashboard = Dashboard()
-    dashboard.show()
+    window = Dashboard()
+    window.show()
     sys.exit(app.exec_())
 
 if __name__ == "__main__":

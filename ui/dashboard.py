@@ -1,60 +1,40 @@
-from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QStackedWidget, QTextEdit
-from ui.file_organizer import FileOrganizer
-from ui.duplicate_finder import DuplicateFinder
-from ui.folder_analyzer import FolderAnalyzer
+from PyQt5.QtWidgets import QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel
 
 class Dashboard(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("BotDesk: Desktop Automation")
-        self.setGeometry(100, 100, 800, 600)
+        self.setWindowTitle("BotDesk Dashboard")
+        self.setGeometry(200, 200, 800, 600)
 
-        # Main layout
-        central_widget = QWidget()
-        self.setCentralWidget(central_widget)
-        layout = QHBoxLayout()
-        central_widget.setLayout(layout)
+        # Main widget and layout
+        self.main_widget = QWidget()
+        self.layout = QVBoxLayout()
 
-        # Sidebar for navigation
-        self.sidebar = QVBoxLayout()
-        layout.addLayout(self.sidebar, 1)
+        # Buttons for each feature
+        self.file_organizer_button = QPushButton("File Organizer")
+        self.duplicate_finder_button = QPushButton("Duplicate Finder")
+        self.folder_analyzer_button = QPushButton("Folder Analyzer")
 
-        # Task area (main content)
-        self.task_area = QStackedWidget()
-        layout.addWidget(self.task_area, 4)
+        # Add buttons to layout
+        self.layout.addWidget(QLabel("Welcome to BotDesk! Choose a task:"))
+        self.layout.addWidget(self.file_organizer_button)
+        self.layout.addWidget(self.duplicate_finder_button)
+        self.layout.addWidget(self.folder_analyzer_button)
 
-        # Log area
-        self.log_area = QTextEdit()
-        self.log_area.setReadOnly(True)
-        layout.addWidget(self.log_area, 1)
+        # Set layout to main widget
+        self.main_widget.setLayout(self.layout)
+        self.setCentralWidget(self.main_widget)
 
-        # Add sidebar buttons
-        self.add_sidebar_button("File Organizer", self.show_file_organizer)
-        self.add_sidebar_button("Duplicate Finder", self.show_duplicate_finder)
-        self.add_sidebar_button("Folder Analyzer", self.show_folder_analyzer)
+        # Connect buttons to actions (to be implemented)
+        self.file_organizer_button.clicked.connect(self.open_file_organizer)
+        self.duplicate_finder_button.clicked.connect(self.open_duplicate_finder)
+        self.folder_analyzer_button.clicked.connect(self.open_folder_analyzer)
 
-        # Add modules to the stacked widget
-        self.file_organizer = FileOrganizer()
-        self.duplicate_finder = DuplicateFinder()
-        self.folder_analyzer = FolderAnalyzer()
+    def open_file_organizer(self):
+        print("Launching File Organizer...")  # Placeholder action
 
-        self.task_area.addWidget(self.file_organizer)
-        self.task_area.addWidget(self.duplicate_finder)
-        self.task_area.addWidget(self.folder_analyzer)
+    def open_duplicate_finder(self):
+        print("Launching Duplicate Finder...")  # Placeholder action
 
-    def add_sidebar_button(self, label, callback):
-        button = QPushButton(label)
-        button.clicked.connect(callback)
-        self.sidebar.addWidget(button)
-
-    def show_file_organizer(self):
-        self.task_area.setCurrentWidget(self.file_organizer)
-        self.log_area.append("Switched to File Organizer")
-
-    def show_duplicate_finder(self):
-        self.task_area.setCurrentWidget(self.duplicate_finder)
-        self.log_area.append("Switched to Duplicate Finder")
-
-    def show_folder_analyzer(self):
-        self.task_area.setCurrentWidget(self.folder_analyzer)
-        self.log_area.append("Switched to Folder Analyzer")
+    def open_folder_analyzer(self):
+        print("Launching Folder Analyzer...")  # Placeholder action
