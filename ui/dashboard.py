@@ -1,75 +1,60 @@
-import sys
-from PyQt5.QtWidgets import (
-    QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
-    QPushButton, QLabel, QStackedWidget, QTextEdit
-)
+from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QHBoxLayout, QPushButton, QWidget, QStackedWidget, QTextEdit
+from ui.file_organizer import FileOrganizer
+from ui.duplicate_finder import DuplicateFinder
+from ui.folder_analyzer import FolderAnalyzer
 
 class Dashboard(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("BotDesk: Automation Dashboard")
-        self.setGeometry(200, 200, 800, 600)
+        self.setWindowTitle("BotDesk: Desktop Automation")
+        self.setGeometry(100, 100, 800, 600)
 
         # Main layout
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
-        main_layout = QHBoxLayout()
-        central_widget.setLayout(main_layout)
+        layout = QHBoxLayout()
+        central_widget.setLayout(layout)
 
-        # Sidebar
+        # Sidebar for navigation
         self.sidebar = QVBoxLayout()
-        self.sidebar_buttons = []
+        layout.addLayout(self.sidebar, 1)
 
-        # Add automation buttons to the sidebar
-        self.add_sidebar_button("File Organizer", self.show_file_organizer)
-        self.add_sidebar_button("Bulk Renamer", self.show_bulk_renamer)
-        self.add_sidebar_button("Task Scheduler", self.show_task_scheduler)
-
-        main_layout.addLayout(self.sidebar)
-
-        # Main area (Stacked Widget to switch between tasks)
+        # Task area (main content)
         self.task_area = QStackedWidget()
-        main_layout.addWidget(self.task_area)
+        layout.addWidget(self.task_area, 4)
 
-        # Add placeholder widgets for each task
-        self.task_area.addWidget(self.create_placeholder("File Organizer"))
-        self.task_area.addWidget(self.create_placeholder("Bulk Renamer"))
-        self.task_area.addWidget(self.create_placeholder("Task Scheduler"))
-
-        # Logging area
+        # Log area
         self.log_area = QTextEdit()
         self.log_area.setReadOnly(True)
-        main_layout.addWidget(self.log_area)
+        layout.addWidget(self.log_area, 1)
 
-    def add_sidebar_button(self, name, handler):
-        button = QPushButton(name)
-        button.clicked.connect(handler)
+        # Add sidebar buttons
+        self.add_sidebar_button("File Organizer", self.show_file_organizer)
+        self.add_sidebar_button("Duplicate Finder", self.show_duplicate_finder)
+        self.add_sidebar_button("Folder Analyzer", self.show_folder_analyzer)
+
+        # Add modules to the stacked widget
+        self.file_organizer = FileOrganizer()
+        self.duplicate_finder = DuplicateFinder()
+        self.folder_analyzer = FolderAnalyzer()
+
+        self.task_area.addWidget(self.file_organizer)
+        self.task_area.addWidget(self.duplicate_finder)
+        self.task_area.addWidget(self.folder_analyzer)
+
+    def add_sidebar_button(self, label, callback):
+        button = QPushButton(label)
+        button.clicked.connect(callback)
         self.sidebar.addWidget(button)
-        self.sidebar_buttons.append(button)
-
-    def create_placeholder(self, text):
-        placeholder = QWidget()
-        layout = QVBoxLayout()
-        label = QLabel(f"{text} - Coming Soon!")
-        layout.addWidget(label)
-        placeholder.setLayout(layout)
-        return placeholder
 
     def show_file_organizer(self):
-        self.task_area.setCurrentIndex(0)
+        self.task_area.setCurrentWidget(self.file_organizer)
         self.log_area.append("Switched to File Organizer")
 
-    def show_bulk_renamer(self):
-        self.task_area.setCurrentIndex(1)
-        self.log_area.append("Switched to Bulk Renamer")
+    def show_duplicate_finder(self):
+        self.task_area.setCurrentWidget(self.duplicate_finder)
+        self.log_area.append("Switched to Duplicate Finder")
 
-    def show_task_scheduler(self):
-        self.task_area.setCurrentIndex(2)
-        self.log_area.append("Switched to Task Scheduler")
-
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    dashboard = Dashboard()
-    dashboard.show()
-    sys.exit(app.exec_())
+    def show_folder_analyzer(self):
+        self.task_area.setCurrentWidget(self.folder_analyzer)
+        self.log_area.append("Switched to Folder Analyzer")
