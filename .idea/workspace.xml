@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79092cf3-6be6-48b7-9471-2096972ae433" name="Changes" comment="Added ui/pdf_tools.py file" />
+    <list default="true" id="79092cf3-6be6-48b7-9471-2096972ae433" name="Changes" comment="Added Dockerfile and requirements.txt files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -103,6 +106,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
@@ -133,7 +140,7 @@
       <workItem from="1737029767154" duration="10176000" />
       <workItem from="1737116938470" duration="1873000" />
       <workItem from="1737255121412" duration="4338000" />
-      <workItem from="1737271401572" duration="1615000" />
+      <workItem from="1737271401572" duration="2932000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -183,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737273931330</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added Dockerfile and requirements.txt files">
+      <option name="closed" value="true" />
+      <created>1737274533841</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1737274533841</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +211,8 @@
     <MESSAGE value="Refactor ui/dashboard.py, ui/main.py and automation/file_organizer.py" />
     <MESSAGE value="Remove file_renamer.py, pdf_tools.py and scheduler.py" />
     <MESSAGE value="Added ui/pdf_tools.py file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ui/pdf_tools.py file" />
+    <MESSAGE value="Added Dockerfile and requirements.txt files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Dockerfile and requirements.txt files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BotDesk$BotDesk.coverage" NAME="BotDesk Coverage Results" MODIFIED="1736936297199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
