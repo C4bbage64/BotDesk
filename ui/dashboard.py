@@ -1,6 +1,8 @@
 from PyQt5.QtWidgets import (
     QMainWindow, QVBoxLayout, QPushButton, QWidget, QLabel
 )
+
+from ui.duplicate_finder import DuplicateFinderUI
 from ui.file_organizer import FileOrganizerUI
 from PyQt5.QtCore import Qt
 
@@ -57,4 +59,5 @@ class Dashboard(QMainWindow):
 
     def open_duplicate_finder(self):
         """Opens the Duplicate Finder UI."""
-        self.duplicate_finder
+        self.duplicate_finder_window = DuplicateFinderUI()
+        self.duplicate_finder_window.show()
