@@ -2,8 +2,8 @@ from PyQt5.QtWidgets import (
     QMainWindow, QVBoxLayout, QPushButton, QWidget, QLabel
 )
 
-from ui.duplicate_finder import DuplicateFinderUI
 from ui.file_organizer import FileOrganizerUI
+from ui.duplicate_finder import DuplicateFinderUI
 from PyQt5.QtCore import Qt
 
 class Dashboard(QMainWindow):
