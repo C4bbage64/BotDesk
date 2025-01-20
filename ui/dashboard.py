@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import (
     QMainWindow, QVBoxLayout, QPushButton, QWidget, QLabel
 )
 from ui.file_organizer import FileOrganizerUI
+from PyQt5.QtCore import Qt
 
 class Dashboard(QMainWindow):
     def __init__(self):
@@ -17,17 +18,21 @@ class Dashboard(QMainWindow):
         self.layout = QVBoxLayout()
 
         # Title
+        # Title
         self.title_label = QLabel("Welcome to BotDesk: Your Desktop Automation Hub")
         self.title_label.setStyleSheet("font-size: 18px; font-weight: bold;")
+        self.title_label.setAlignment(Qt.AlignCenter)  # Center the text
         self.layout.addWidget(self.title_label)
 
         # Feature buttons
+        # File Organizer Button
         self.file_organizer_button = QPushButton("File Organizer")
         self.file_organizer_button.clicked.connect(self.open_file_organizer)
         self.layout.addWidget(self.file_organizer_button)
 
-        self.duplicate_finder_button = QPushButton("Duplicate Finder (Coming Soon)")
-        self.duplicate_finder_button.setEnabled(False)  # Placeholder for future implementation
+        # Duplicate Finder Button
+        self.duplicate_finder_button = QPushButton("Duplicate Finder")
+        self.duplicate_finder_button.clicked.connect(self.open_file_organizer)
         self.layout.addWidget(self.duplicate_finder_button)
 
         self.folder_analyzer_button = QPushButton("Folder Analyzer (Coming Soon)")
