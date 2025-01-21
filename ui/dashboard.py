@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import (
 )
 from ui.file_organizer import FileOrganizerUI
 from ui.duplicate_finder import DuplicateFinderUI
+from ui.folder_analyzer import FolderAnalyzerUI  # Import the Folder Analyzer UI
 from PyQt5.QtCore import Qt
 
 class Dashboard(QMainWindow):
@@ -35,9 +36,14 @@ class Dashboard(QMainWindow):
         self.duplicate_finder_button.clicked.connect(self.open_duplicate_finder)
         self.layout.addWidget(self.duplicate_finder_button)
 
-        self.folder_analyzer_button = QPushButton("Folder Analyzer (Coming Soon)")
-        self.folder_analyzer_button.setEnabled(False)  # Placeholder for future implementation
+        # Folder Analyzer Button
+        self.folder_analyzer_button = QPushButton("Folder Analyzer")
+        self.folder_analyzer_button.clicked.connect(self.open_folder_analyzer)
         self.layout.addWidget(self.folder_analyzer_button)
+
+        # self.folder_analyzer_button = QPushButton("Folder Analyzer (Coming Soon)")
+        # self.folder_analyzer_button.setEnabled(False)  # Placeholder for future implementation
+        # self.layout.addWidget(self.folder_analyzer_button)
 
         self.pdf_tools_button = QPushButton("PDF Tools (Coming Soon)")
         self.pdf_tools_button.setEnabled(False)  # Placeholder for future implementation
@@ -59,3 +65,8 @@ class Dashboard(QMainWindow):
         """Opens the Duplicate Finder UI."""
         self.duplicate_finder_window = DuplicateFinderUI()
         self.duplicate_finder_window.show()
+
+    def open_folder_analyzer(self):
+        """Opens the Folder Analyzer UI."""
+        self.folder_analyzer_window = FolderAnalyzerUI()
+        self.folder_analyzer_window.show()
