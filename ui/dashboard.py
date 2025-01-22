@@ -1,9 +1,10 @@
 from PyQt5.QtWidgets import (
     QMainWindow, QVBoxLayout, QPushButton, QWidget, QLabel
 )
-from ui.file_organizer import FileOrganizerUI
-from ui.duplicate_finder import DuplicateFinderUI
+from ui.file_organizer import FileOrganizerUI  # Import the File Organizer UI
+from ui.duplicate_finder import DuplicateFinderUI  # Import the Duplicate Finder UI
 from ui.folder_analyzer import FolderAnalyzerUI  # Import the Folder Analyzer UI
+from ui.pdf_tools import PDFToolsUI  # Import the PDF Tools UI
 from PyQt5.QtCore import Qt
 
 class Dashboard(QMainWindow):
@@ -41,12 +42,9 @@ class Dashboard(QMainWindow):
         self.folder_analyzer_button.clicked.connect(self.open_folder_analyzer)
         self.layout.addWidget(self.folder_analyzer_button)
 
-        # self.folder_analyzer_button = QPushButton("Folder Analyzer (Coming Soon)")
-        # self.folder_analyzer_button.setEnabled(False)  # Placeholder for future implementation
-        # self.layout.addWidget(self.folder_analyzer_button)
-
-        self.pdf_tools_button = QPushButton("PDF Tools (Coming Soon)")
-        self.pdf_tools_button.setEnabled(False)  # Placeholder for future implementation
+        # PDF Tools Button
+        self.pdf_tools_button = QPushButton("PDF Tools")
+        self.pdf_tools_button.clicked.connect(self.open_pdf_tools)
         self.layout.addWidget(self.pdf_tools_button)
 
         self.system_cleaner_button = QPushButton("System Cleaner (Coming Soon)")
@@ -70,3 +68,8 @@ class Dashboard(QMainWindow):
         """Opens the Folder Analyzer UI."""
         self.folder_analyzer_window = FolderAnalyzerUI()
         self.folder_analyzer_window.show()
+
+    def open_pdf_tools(self):
+        """Opens the PDF Tools UI."""
+        self.pdf_tools_window = PDFToolsUI()
+        self.pdf_tools_window.show()
