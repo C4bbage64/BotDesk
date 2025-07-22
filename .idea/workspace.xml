@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79092cf3-6be6-48b7-9471-2096972ae433" name="Changes" comment="Refactor ui/dashboard.py, ui/folder_analyzer.py and automations/folder_analyzer.py">
+    <list default="true" id="79092cf3-6be6-48b7-9471-2096972ae433" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/automations/pdf_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/automations/pdf_tools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/dashboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/pdf_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/pdf_tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/automations/system_cleaner.py" beforeDir="false" afterPath="$PROJECT_DIR$/automations/system_cleaner.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +158,8 @@
       <workItem from="1737271401572" duration="23105000" />
       <workItem from="1737461626720" duration="11337000" />
       <workItem from="1737540157039" duration="2322000" />
-      <workItem from="1737554468310" duration="2074000" />
+      <workItem from="1737554468310" duration="3180000" />
+      <workItem from="1738667606286" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -314,7 +313,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737470078500</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Refactor ui/dashboard.py, ui/pdf_tools.py and automations/pdf_tools.py">
+      <option name="closed" value="true" />
+      <created>1737562186659</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1737562186660</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +345,8 @@
     <MESSAGE value="Refactor ui/dashboard.py to connect duplicate finder button to the method" />
     <MESSAGE value="Refactor ui/dashboard.py" />
     <MESSAGE value="Refactor ui/dashboard.py, ui/folder_analyzer.py and automations/folder_analyzer.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor ui/dashboard.py, ui/folder_analyzer.py and automations/folder_analyzer.py" />
+    <MESSAGE value="Refactor ui/dashboard.py, ui/pdf_tools.py and automations/pdf_tools.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor ui/dashboard.py, ui/pdf_tools.py and automations/pdf_tools.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BotDesk$BotDesk.coverage" NAME="BotDesk Coverage Results" MODIFIED="1736936297199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
