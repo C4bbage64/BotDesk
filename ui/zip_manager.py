@@ -40,15 +40,25 @@ class ZipManagerUI(QWidget):
         # Buttons to Add/Remove
         btn_layout = QHBoxLayout()
         add_file_btn = QPushButton("Add Files")
+        add_file_btn.setToolTip("Select individual files to compress")
         add_file_btn.clicked.connect(self.add_files)
+        
         add_folder_btn = QPushButton("Add Folder")
+        add_folder_btn.setToolTip("Select a whole folder to compress")
         add_folder_btn.clicked.connect(self.add_folder)
+        
         remove_btn = QPushButton("Remove Selected")
+        remove_btn.setToolTip("Remove selected items from the list")
         remove_btn.clicked.connect(self.remove_selected)
+        
+        clear_list_btn = QPushButton("Clear List")
+        clear_list_btn.setToolTip("Remove all items")
+        clear_list_btn.clicked.connect(self.file_list.clear)
         
         btn_layout.addWidget(add_file_btn)
         btn_layout.addWidget(add_folder_btn)
         btn_layout.addWidget(remove_btn)
+        btn_layout.addWidget(clear_list_btn)
         layout.addLayout(btn_layout)
 
         # Output Path
@@ -64,8 +74,9 @@ class ZipManagerUI(QWidget):
 
         # Compress Button
         self.compress_btn = QPushButton("Create Archive")
+        self.compress_btn.setCursor(Qt.PointingHandCursor)
         self.compress_btn.clicked.connect(self.run_compression)
-        self.compress_btn.setStyleSheet("background-color: #0e639c; color: white; padding: 10px; font-weight: bold;")
+        self.compress_btn.setStyleSheet("background-color: #0e639c; color: white; padding: 12px; font-weight: bold; font-size: 14px; border-radius: 6px;")
         layout.addWidget(self.compress_btn)
         
         tab.setLayout(layout)
@@ -99,8 +110,9 @@ class ZipManagerUI(QWidget):
 
         # Extract Button
         self.extract_btn = QPushButton("Extract Here")
+        self.extract_btn.setCursor(Qt.PointingHandCursor)
         self.extract_btn.clicked.connect(self.run_extraction)
-        self.extract_btn.setStyleSheet("background-color: #28a745; color: white; padding: 10px; font-weight: bold;")
+        self.extract_btn.setStyleSheet("background-color: #28a745; color: white; padding: 12px; font-weight: bold; font-size: 14px; border-radius: 6px;")
         layout.addWidget(self.extract_btn)
 
         tab.setLayout(layout)
