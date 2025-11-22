@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="79092cf3-6be6-48b7-9471-2096972ae433" name="Changes" comment="Refactor ui/dashboard.py, ui/pdf_tools.py and automations/pdf_tools.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+    <list default="true" id="79092cf3-6be6-48b7-9471-2096972ae433" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/automations/system_cleaner.py" beforeDir="false" afterPath="$PROJECT_DIR$/automations/system_cleaner.py" afterDir="false" />
+>>>>>>> 7c836f4f2fd5665440739792ad2761ca83c84233
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,8 +165,11 @@
       <workItem from="1737540157039" duration="2322000" />
       <workItem from="1737554468310" duration="3180000" />
       <workItem from="1738667606286" duration="7000" />
+<<<<<<< HEAD
       <workItem from="1753166721874" duration="300000" />
       <workItem from="1753167139631" duration="40000" />
+=======
+>>>>>>> 7c836f4f2fd5665440739792ad2761ca83c84233
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -322,6 +331,7 @@
       <option name="project" value="LOCAL" />
       <updated>1737562186660</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00021" summary="Refactor ui/dashboard.py, ui/pdf_tools.py and automations/pdf_tools.py">
       <option name="closed" value="true" />
       <created>1753166863834</created>
@@ -331,6 +341,9 @@
       <updated>1753166863834</updated>
     </task>
     <option name="localTasksCounter" value="22" />
+=======
+    <option name="localTasksCounter" value="21" />
+>>>>>>> 7c836f4f2fd5665440739792ad2761ca83c84233
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
