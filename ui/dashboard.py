@@ -7,6 +7,8 @@ from ui.duplicate_finder import DuplicateFinderUI
 from ui.folder_analyzer import FolderAnalyzerUI
 from ui.pdf_tools import PDFToolsUI
 from ui.system_cleaner import SystemCleanerUI
+from ui.batch_renamer import BatchRenamerUI
+from ui.zip_manager import ZipManagerUI
 
 class Dashboard(QMainWindow):
     def __init__(self):
@@ -44,6 +46,8 @@ class Dashboard(QMainWindow):
         self.add_nav_button("Folder Analyzer", 2)
         self.add_nav_button("PDF Tools", 3)
         self.add_nav_button("System Cleaner", 4)
+        self.add_nav_button("Batch Renamer", 5)
+        self.add_nav_button("Zip Manager", 6)
 
         self.sidebar_layout.addStretch()
         
@@ -62,6 +66,8 @@ class Dashboard(QMainWindow):
         self.folder_analyzer = FolderAnalyzerUI()
         self.pdf_tools = PDFToolsUI()
         self.system_cleaner = SystemCleanerUI()
+        self.batch_renamer = BatchRenamerUI()
+        self.zip_manager = ZipManagerUI()
 
         # Add Tools to Stack
         self.content_area.addWidget(self.file_organizer)
@@ -69,6 +75,8 @@ class Dashboard(QMainWindow):
         self.content_area.addWidget(self.folder_analyzer)
         self.content_area.addWidget(self.pdf_tools)
         self.content_area.addWidget(self.system_cleaner)
+        self.content_area.addWidget(self.batch_renamer)
+        self.content_area.addWidget(self.zip_manager)
 
         # Add widgets to main layout
         self.main_layout.addWidget(self.sidebar)
