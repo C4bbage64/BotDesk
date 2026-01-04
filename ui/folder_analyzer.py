@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import (
     QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QFileDialog, 
     QTextEdit, QHBoxLayout, QTableWidget, QTableWidgetItem, QHeaderView,
-    QTabWidget, QMenu, QMessageBox
+    QTabWidget, QMenu, QMessageBox, QProgressBar
 )
 from PyQt5.QtCore import Qt, QUrl
 from PyQt5.QtGui import QDesktopServices
@@ -41,6 +41,12 @@ class FolderAnalyzerUI(QWidget):
         self.analyze_button.setObjectName("PrimaryButton")
         self.analyze_button.clicked.connect(self.analyze_folder)
         layout.addWidget(self.analyze_button)
+        
+        # Progress Bar
+        self.progress_bar = QProgressBar()
+        self.progress_bar.setVisible(False)
+        self.progress_bar.setRange(0, 0) # Indeterminate initially
+        layout.addWidget(self.progress_bar)
 
         # Summary Label
         self.summary_label = QLabel("Ready to analyze.")
@@ -84,15 +90,21 @@ class FolderAnalyzerUI(QWidget):
              return
 
         self.toggle_ui(False)
+        self.progress_bar.setVisible(True)
         self.summary_label.setText("Analyzing... This may take a while for large drives.")
         
         self.worker = AnalyzerWorker(folder_path)
         self.worker.finished.connect(self.on_analyze_finished)
+        self.worker.progress.connect(self.on_progress)
         self.worker.error.connect(self.on_analyze_error)
         self.worker.start()
+        
+    def on_progress(self, count):
+        self.summary_label.setText(f"Scanning... Found {count} files")
 
     def on_analyze_finished(self, result):
         self.toggle_ui(True)
+        self.progress_bar.setVisible(False)
         
         # Update Summary
         size_gb = result['total_size'] / (1024**3)
@@ -116,6 +128,7 @@ class FolderAnalyzerUI(QWidget):
 
     def on_analyze_error(self, error_msg):
         self.toggle_ui(True)
+        self.progress_bar.setVisible(False)
         self.summary_label.setText("Analysis Failed.")
         QMessageBox.critical(self, "Error", str(error_msg))
 

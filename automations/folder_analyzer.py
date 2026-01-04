@@ -1,16 +1,15 @@
 import os
 
-def analyze_folder(folder_path):
+def analyze_folder(folder_path, progress_callback=None):
     """
     Analyze the contents of a folder and returns a detailed summary dictionary.
+    
+    Args:
+        folder_path (str): Path to analyze
+        progress_callback (callable): Optional function to call with progress updates (e.g. file count)
+        
     Returns:
-        dict: {
-            'total_files': int,
-            'total_folders': int,
-            'total_size': int (bytes),
-            'top_files': list of (path, size),
-            'top_folders': list of (path, size)
-        }
+        dict: Analysis results
     """
     if not os.path.exists(folder_path):
         raise ValueError("The folder does not exist.")
@@ -26,12 +25,16 @@ def analyze_folder(folder_path):
         # First pass: Walk to get all files and calculate sizes
         for root, dirs, files in os.walk(folder_path):
             folder_count += len(dirs)
-            file_count += len(files)
             
+            # Update progress periodically
+            if progress_callback and file_count % 100 == 0:
+                progress_callback(file_count)
+
             # Calculate size of current folder (just files in it)
             current_folder_size = 0
             
             for f in files:
+                file_count += 1
                 fp = os.path.join(root, f)
                 try:
                     size = os.path.getsize(fp)
@@ -41,37 +44,10 @@ def analyze_folder(folder_path):
                 except OSError:
                     pass # Skip files we can't access
             
-            # Add to directory sizes (this is direct size, we might want cumulative)
-            # For "Largest Folders", usually users mean cumulative size (including subfolders).
-            # We'll need a way to propagate sizes up.
             folder_sizes[root] = current_folder_size
 
         # Propagate sizes for cumulative folder size
         # We need to process from deepest to shallowest
-        sorted_folders = sorted(folder_sizes.keys(), key=lambda x: x.count(os.sep), reverse=True)
-        cumulative_sizes = {}
-        
-        for folder in sorted_folders:
-            size = folder_sizes.get(folder, 0)
-            # Add this folder's size to its parent
-            parent = os.path.dirname(folder)
-            
-            # Initialize if not set (for the current folder)
-            if folder not in cumulative_sizes:
-                cumulative_sizes[folder] = size
-            else:
-                cumulative_sizes[folder] += size
-            
-            # Add to parent logic would be tricky because os.walk covers everything.
-            # Wait, os.walk hits every folder. 
-            # If I sum all files in a tree, I get the total.
-            # To get "Folder Size", I should sum all files where 'folder' is a prefix of file path.
-            # But that's O(N*M).
-            
-            # Better approach:
-            # os.walk is top-down by default. 'topdown=False' makes it bottom-up.
-        
-        # Let's redo the walk with bottom-up for easier cumulative calculation
         folder_cum_sizes = {}
         
         for root, dirs, files in os.walk(folder_path, topdown=False):
@@ -86,9 +62,6 @@ def analyze_folder(folder_path):
 
         # Sort for top 50
         top_files = sorted(all_files, key=lambda x: x[1], reverse=True)[:50]
-        
-        # For folders, we might want to exclude the root itself from the list if it's just "the whole drive"
-        # But showing it is fine.
         top_folders = sorted(folder_cum_sizes.items(), key=lambda x: x[1], reverse=True)[:50]
 
         return {

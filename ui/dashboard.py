@@ -51,6 +51,7 @@ class Dashboard(QMainWindow):
         self.add_nav_button("Image Optimizer", 7)
         self.add_nav_button("Video Downloader", 8)
         self.add_nav_button("File Encryptor", 9)
+        self.add_nav_button("Internet Speed Test", 10)
 
         self.sidebar_layout.addStretch()
         
@@ -80,6 +81,9 @@ class Dashboard(QMainWindow):
         
         from ui.file_encryptor import FileEncryptorUI
         self.file_encryptor = FileEncryptorUI()
+        
+        from ui.speed_test import SpeedTestUI
+        self.speed_test = SpeedTestUI()
 
         # Add Tools to Stack
         self.content_area.addWidget(self.file_organizer)
@@ -92,6 +96,7 @@ class Dashboard(QMainWindow):
         self.content_area.addWidget(self.image_optimizer)
         self.content_area.addWidget(self.video_downloader)
         self.content_area.addWidget(self.file_encryptor)
+        self.content_area.addWidget(self.speed_test)
 
         # Add widgets to main layout
         self.main_layout.addWidget(self.sidebar)

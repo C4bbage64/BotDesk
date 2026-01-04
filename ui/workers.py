@@ -22,6 +22,7 @@ class RenamerWorker(QThread):
 
 class AnalyzerWorker(QThread):
     finished = pyqtSignal(object)  # result dict
+    progress = pyqtSignal(int)
     error = pyqtSignal(str)
 
     def __init__(self, folder_path):
@@ -30,7 +31,8 @@ class AnalyzerWorker(QThread):
 
     def run(self):
         try:
-            result = analyze_folder(self.folder_path)
+            # We pass self.progress.emit as the callback
+            result = analyze_folder(self.folder_path, progress_callback=self.progress.emit)
             self.finished.emit(result)
         except Exception as e:
             self.error.emit(str(e))
@@ -73,5 +75,17 @@ class EncryptorWorker(QThread):
             else:
                 raise ValueError("Invalid mode")
             self.finished.emit(msg)
+        except Exception as e:
+            self.error.emit(str(e))
+
+class SpeedTestWorker(QThread):
+    finished = pyqtSignal(dict)
+    error = pyqtSignal(str)
+
+    def run(self):
+        try:
+            from automations.speed_test import run_speed_test
+            results = run_speed_test()
+            self.finished.emit(results)
         except Exception as e:
             self.error.emit(str(e))
