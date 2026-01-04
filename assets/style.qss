@@ -1,0 +1,226 @@
+/* Modern Dark Theme for BotDesk */
+
+/* General Window & Widget Styles */
+QWidget {
+    background-color: #1e1e1e;
+    color: #cccccc;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+QMainWindow {
+    background-color: #1e1e1e;
+}
+
+/* Sidebar Styling */
+QFrame#Sidebar {
+    background-color: #252526;
+    border-right: 1px solid #333;
+}
+
+QLabel#SidebarTitle {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+QLabel#VersionLabel {
+    color: #666666;
+    font-size: 11px;
+    padding: 10px;
+}
+
+/* Sidebar Navigation Buttons */
+QPushButton {
+    border: none;
+    text-align: left;
+    padding: 12px 20px;
+    color: #cccccc;
+    background-color: transparent;
+    border-left: 3px solid transparent;
+}
+
+QPushButton:hover {
+    background-color: #2a2d2e;
+    color: #ffffff;
+}
+
+QPushButton:checked {
+    background-color: #37373d;
+    color: #ffffff;
+    border-left: 3px solid #007acc;
+}
+
+/* Content Area Header */
+QLabel#PageTitle {
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* Input Fields */
+QLineEdit, QTextEdit, QPlainTextEdit {
+    background-color: #3c3c3c;
+    color: #ffffff;
+    border: 1px solid #3c3c3c;
+    padding: 8px;
+    border-radius: 4px;
+    selection-background-color: #264f78;
+}
+
+QLineEdit:focus, QTextEdit:focus {
+    border: 1px solid #007acc;
+    background-color: #444444;
+}
+
+/* Group Box */
+QGroupBox {
+    border: 1px solid #454545;
+    border-radius: 6px;
+    margin-top: 24px;
+    padding-top: 10px;
+    font-weight: bold;
+    color: #dddddd;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 0 5px;
+    left: 10px;
+}
+
+/* Tables */
+QTableWidget {
+    background-color: #2d2d2d;
+    alternate-background-color: #333333;
+    gridline-color: #404040;
+    border: 1px solid #454545;
+    border-radius: 4px;
+}
+
+QHeaderView::section {
+    background-color: #252526;
+    color: #cccccc;
+    padding: 6px;
+    border: none;
+    border-bottom: 1px solid #454545;
+    font-weight: bold;
+}
+
+QTableWidget::item {
+    padding: 4px;
+}
+
+QTableWidget::item:selected {
+    background-color: #094771;
+    color: #ffffff;
+}
+
+/* Scrollbars */
+QScrollBar:vertical {
+    border: none;
+    background: #1e1e1e;
+    width: 14px;
+    margin: 0px; 
+}
+
+QScrollBar::handle:vertical {
+    background: #424242;
+    min-height: 20px;
+    border-radius: 7px;
+    margin: 2px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #4f4f4f;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+/* Action Buttons */
+QPushButton#PrimaryButton {
+    background-color: #007acc;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    text-align: center;
+    font-weight: bold;
+    border-left: none;
+}
+
+QPushButton#PrimaryButton:hover {
+    background-color: #0062a3;
+}
+
+QPushButton#PrimaryButton:disabled {
+    background-color: #3a3d41;
+    color: #888888;
+}
+
+QPushButton#SuccessButton {
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    border-left: none;
+}
+
+QPushButton#SuccessButton:hover {
+    background-color: #218838;
+}
+
+QPushButton#SuccessButton:disabled {
+    background-color: #3a3d41;
+    color: #888888;
+}
+
+/* Progress Bar */
+QProgressBar {
+    border: none;
+    background-color: #3c3c3c;
+    border-radius: 4px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    height: 20px;
+}
+
+QProgressBar::chunk {
+    background-color: #007acc;
+    border-radius: 4px;
+}
+
+/* Legacy/Unrefactored Buttons (Targeting by text until refactored) */
+QPushButton[text="Browse"], QPushButton[text="Organize Files"], 
+QPushButton[text="Find Duplicates"], QPushButton[text="Delete Duplicates"],
+QPushButton[text="Analyze Folder"], QPushButton[text="Merge PDFs"],
+QPushButton[text="Split PDF"], QPushButton[text="Extract Text"],
+QPushButton[text="Clean Temporary Files"], QPushButton[text="Create Zip Archive"], 
+QPushButton[text="Extract Zip Archive"] {
+    background-color: #0e639c;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+    border-left: none; 
+}
+
+QPushButton[text="Browse"]:hover, QPushButton[text="Organize Files"]:hover,
+QPushButton[text="Find Duplicates"]:hover, QPushButton[text="Delete Duplicates"]:hover,
+QPushButton[text="Analyze Folder"]:hover, QPushButton[text="Merge PDFs"]:hover,
+QPushButton[text="Split PDF"]:hover, QPushButton[text="Extract Text"]:hover,
+QPushButton[text="Clean Temporary Files"]:hover, QPushButton[text="Create Zip Archive"]:hover,
+QPushButton[text="Extract Zip Archive"]:hover {
+    background-color: #1177bb;
+}

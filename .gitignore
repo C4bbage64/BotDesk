@@ -169,3 +169,17 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# IDEs (Merged from master)
+.idea/
+.vscode/
+*.swp
+*.swo
+.vs/
+
+# Logs (Merged from master)
+error_log.txt
+
+# OS (Merged from master)
+.DS_Store
+Thumbs.db
