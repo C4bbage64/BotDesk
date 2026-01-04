@@ -56,9 +56,31 @@ class TestNewFeatures(unittest.TestCase):
         msg = extract_archive(zip_path, extract_dir)
         self.assertTrue("Successfully extracted" in msg)
         
+
         # Verify extracted content
         self.assertTrue(os.path.exists(os.path.join(extract_dir, "file1.txt")))
         print("Zip Manager Passed!")
+
+    def test_undo_rename(self):
+        print("\nTesting Undo Functionality...")
+        # 1. Rename
+        preview = get_rename_preview(self.test_dir, add_prefix="undo_test_")
+        rename_map = {old: new for old, new in preview}
+        execute_renames(self.test_dir, rename_map)
+        
+        self.assertTrue(os.path.exists(os.path.join(self.test_dir, "undo_test_file1.txt")))
+        
+        # 2. Undo (Reverse Rename)
+        reverse_map = {new: old for old, new in rename_map.items()}
+        msg, errors = execute_renames(self.test_dir, reverse_map)
+        
+        self.assertEqual(len(errors), 0)
+        self.assertTrue("Successfully renamed" in msg)
+        
+        # 3. Verify Reversion
+        self.assertTrue(os.path.exists(os.path.join(self.test_dir, "file1.txt")))
+        self.assertFalse(os.path.exists(os.path.join(self.test_dir, "undo_test_file1.txt")))
+        print("Undo Functionality Passed!")
 
 if __name__ == '__main__':
     unittest.main()

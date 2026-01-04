@@ -1,9 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\.venv",
+    "\\assets",
     "\\automations",
+    "\\env",
+    "\\tests",
+    "\\tests\\__pycache__",
     "\\ui"
   ],
-  "SelectedNode": "\\automations\\duplicate_finder.py",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }
