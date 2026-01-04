@@ -89,3 +89,36 @@ class SpeedTestWorker(QThread):
             self.finished.emit(results)
         except Exception as e:
             self.error.emit(str(e))
+
+class MonitorWorker(QThread):
+    finished = pyqtSignal(dict)
+    error = pyqtSignal(str)
+
+    def __init__(self, url):
+        super().__init__()
+        self.url = url
+
+    def run(self):
+        try:
+            from automations.website_monitor import check_website
+            result = check_website(self.url)
+            self.finished.emit(result)
+        except Exception as e:
+            self.error.emit(str(e))
+
+class ScraperWorker(QThread):
+    finished = pyqtSignal(list)
+    error = pyqtSignal(str)
+
+    def __init__(self, url, target):
+        super().__init__()
+        self.url = url
+        self.target = target
+
+    def run(self):
+        try:
+            from automations.web_scraper import scrape_website
+            results = scrape_website(self.url, self.target)
+            self.finished.emit(results)
+        except Exception as e:
+            self.error.emit(str(e))

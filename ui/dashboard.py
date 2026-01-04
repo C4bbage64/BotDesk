@@ -41,17 +41,28 @@ class Dashboard(QMainWindow):
 
         # Navigation Buttons
         self.nav_buttons = []
+        
+        # File Management
+        self.add_nav_header("File Management")
         self.add_nav_button("File Organizer", 0)
         self.add_nav_button("Duplicate Finder", 1)
-        self.add_nav_button("Folder Analyzer", 2)
-        self.add_nav_button("PDF Tools", 3)
-        self.add_nav_button("System Cleaner", 4)
+        self.add_nav_button("Disk Analyzer", 2)
         self.add_nav_button("Batch Renamer", 5)
         self.add_nav_button("Zip Manager", 6)
+        self.add_nav_button("File Encryptor", 9)
+        
+        # Media Tools
+        self.add_nav_header("Media Tools")
         self.add_nav_button("Image Optimizer", 7)
         self.add_nav_button("Video Downloader", 8)
-        self.add_nav_button("File Encryptor", 9)
+        self.add_nav_button("PDF Tools", 3)
+        
+        # System & Web
+        self.add_nav_header("System & Web")
+        self.add_nav_button("System Cleaner", 4)
         self.add_nav_button("Internet Speed Test", 10)
+        self.add_nav_button("Website Monitor", 11)
+        self.add_nav_button("Web Scraper", 12)
 
         self.sidebar_layout.addStretch()
         
@@ -84,6 +95,12 @@ class Dashboard(QMainWindow):
         
         from ui.speed_test import SpeedTestUI
         self.speed_test = SpeedTestUI()
+        
+        from ui.website_monitor import WebsiteMonitorUI
+        self.website_monitor = WebsiteMonitorUI()
+        
+        from ui.web_scraper import WebScraperUI
+        self.web_scraper = WebScraperUI()
 
         # Add Tools to Stack
         self.content_area.addWidget(self.file_organizer)
@@ -97,6 +114,8 @@ class Dashboard(QMainWindow):
         self.content_area.addWidget(self.video_downloader)
         self.content_area.addWidget(self.file_encryptor)
         self.content_area.addWidget(self.speed_test)
+        self.content_area.addWidget(self.website_monitor)
+        self.content_area.addWidget(self.web_scraper)
 
         # Add widgets to main layout
         self.main_layout.addWidget(self.sidebar)
@@ -104,6 +123,11 @@ class Dashboard(QMainWindow):
 
         # Apply Styles
         self.apply_styles()
+
+    def add_nav_header(self, text):
+        label = QLabel(text)
+        label.setStyleSheet("font-weight: bold; color: #555; margin-top: 10px; margin-bottom: 5px; padding-left: 5px;")
+        self.sidebar_layout.addWidget(label)
 
     def add_nav_button(self, text, index):
         btn = QPushButton(text)
