@@ -49,6 +49,8 @@ class Dashboard(QMainWindow):
         self.add_nav_button("Batch Renamer", 5)
         self.add_nav_button("Zip Manager", 6)
         self.add_nav_button("Image Optimizer", 7)
+        self.add_nav_button("Video Downloader", 8)
+        self.add_nav_button("File Encryptor", 9)
 
         self.sidebar_layout.addStretch()
         
@@ -72,6 +74,12 @@ class Dashboard(QMainWindow):
         
         from ui.image_optimizer import ImageOptimizerUI
         self.image_optimizer = ImageOptimizerUI()
+        
+        from ui.video_downloader import VideoDownloaderUI
+        self.video_downloader = VideoDownloaderUI()
+        
+        from ui.file_encryptor import FileEncryptorUI
+        self.file_encryptor = FileEncryptorUI()
 
         # Add Tools to Stack
         self.content_area.addWidget(self.file_organizer)
@@ -82,6 +90,8 @@ class Dashboard(QMainWindow):
         self.content_area.addWidget(self.batch_renamer)
         self.content_area.addWidget(self.zip_manager)
         self.content_area.addWidget(self.image_optimizer)
+        self.content_area.addWidget(self.video_downloader)
+        self.content_area.addWidget(self.file_encryptor)
 
         # Add widgets to main layout
         self.main_layout.addWidget(self.sidebar)

@@ -1,3 +1,5 @@
 PyQt5~=5.15.11
 PyPDF2
 Pillow
+yt-dlp
+cryptography
